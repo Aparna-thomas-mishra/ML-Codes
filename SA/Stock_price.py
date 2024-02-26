@@ -27,8 +27,10 @@ def find_ticker_symbol(company_name):
     # Check if the lowercase 'Company Name' contains the lowercase user input
     # Assuming 'Company Name' is the column you want to filter and 'user_input_lower' is the value you're looking for
     if isinstance(df, pd.DataFrame):
+        st.write("in If")
         filtered_df = df[df['Company Name'].str.lower().str.contains(user_input_lower)]
     else:
+        st.write("in Else")
         print("Error: 'df' is not a DataFrame.")
 
     # Now, you can access the 'Stock Ticker' column from the filtered DataFrame
