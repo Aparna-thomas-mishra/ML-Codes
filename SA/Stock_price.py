@@ -11,9 +11,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-package = Package('https://github.com/Aparna-thomas-mishra/ML-Codes/blob/main/SA/datapackage.json')
-
-df=[]
+package = Package('https://datahub.io/core/s-and-p-500-companies/datapackage.json')
 
 # Extract the relevant CSV resource
 for resource in package.resources:
@@ -25,16 +23,7 @@ def find_ticker_symbol(company_name):
     user_input_lower = company_name.lower()
 
     # Check if the lowercase 'Company Name' contains the lowercase user input
-    # Assuming 'Company Name' is the column you want to filter and 'user_input_lower' is the value you're looking for
-    if isinstance(df, pd.DataFrame):
-        st.write("in If")
-        filtered_df = df[df['Company Name'].str.lower().str.contains(user_input_lower)]
-    else:
-        st.write("in Else")
-        print("Error: 'df' is not a DataFrame.")
-
-    # Now, you can access the 'Stock Ticker' column from the filtered DataFrame
-    ticker = filtered_df['Stock Ticker'].values
+    ticker = df[df['Company Name'].str.lower().str.contains(user_input_lower)]['Stock Ticker'].values
 
     return ticker[0] if len(ticker) > 0 else None
 
