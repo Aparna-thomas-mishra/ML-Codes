@@ -11,7 +11,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-package = Package('datapackage.json')
+package = Package('https://github.com/Aparna-thomas-mishra/ML-Codes/blob/main/SA/datapackage.json')
 
 # Extract the relevant CSV resource
 for resource in package.resources:
