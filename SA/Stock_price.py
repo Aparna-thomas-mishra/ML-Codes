@@ -60,7 +60,7 @@ if company_name:
         tickerDF = tickerData.history(period = '1mo', start = '2005-5-31', end = date.today())
 
         # Convert index to datetime and localize timezone
-        tickerDF.index = pd.to_datetime(tickerDF.index).tz_convert("UTC")
+        tickerDF.index = pd.to_datetime(tickerDF.index).tz_localize('utc')
 
         # Create two columns for side-by-side display
         col1, col2 = st.columns(2)
