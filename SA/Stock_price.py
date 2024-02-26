@@ -25,7 +25,8 @@ def find_ticker_symbol(company_name):
     user_input_lower = company_name.lower()
 
     # Check if the lowercase 'Company Name' contains the lowercase user input
-    ticker = df[df['Company Name'].str.lower().str.contains(user_input_lower)]['Stock Ticker'].values
+    filtered_df = df[df['Company Name'].str.lower().str.contains(user_input_lower)]
+    ticker = filtered_df['Stock Ticker'].values
 
     return ticker[0] if len(ticker) > 0 else None
 
