@@ -13,6 +13,8 @@ st.set_page_config(
 
 package = Package('https://github.com/Aparna-thomas-mishra/ML-Codes/blob/main/SA/datapackage.json')
 
+df=[]
+
 # Extract the relevant CSV resource
 for resource in package.resources:
     if resource.descriptor['datahub']['type'] == 'derived/csv':
