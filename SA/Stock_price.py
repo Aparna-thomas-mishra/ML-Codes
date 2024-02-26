@@ -59,6 +59,10 @@ if company_name:
         #Get historical prices of this ticker
         tickerDF = tickerData.history(period = '1mo', start = '2005-5-31', end = date.today())
 
+        # Convert index to datetime and localize timezone
+        tickerDF.index = pd.to_datetime(tickerDF.index)
+        tickerDF.index = tickerDF.index.tz_localize("EST").tz_convert("UTC")
+
         # Create two columns for side-by-side display
         col1, col2 = st.columns(2)
 
