@@ -11,7 +11,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-package = Package('https://datahub.io/core/s-and-p-500-companies/package.json')
+package = Package('https://datahub.io/core/s-and-p-500-companies/datapackage.json')
 
 # Extract the relevant CSV resource
 for resource in package.resources:
