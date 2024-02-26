@@ -16,14 +16,14 @@ package = Package('https://github.com/Aparna-thomas-mishra/ML-Codes/blob/main/SA
 # Extract the relevant CSV resource
 for resource in package.resources:
     if resource.descriptor['datahub']['type'] == 'derived/csv':
-        sp500_df = pd.DataFrame(resource.read(), columns=['Stock Ticker', 'Company Name', 'Sector'])
+        df = pd.DataFrame(resource.read(), columns=['Stock Ticker', 'Company Name', 'Sector'])
 
 def find_ticker_symbol(company_name):
     # Convert user input to lowercase for case-insensitivity
     user_input_lower = company_name.lower()
 
     # Check if the lowercase 'Company Name' contains the lowercase user input
-    ticker = sp500_df[sp500_df['Company Name'].str.lower().str.contains(user_input_lower)]['Stock Ticker'].values
+    ticker = df[df['Company Name'].str.lower().str.contains(user_input_lower)]['Stock Ticker'].values
 
     return ticker[0] if len(ticker) > 0 else None
 
