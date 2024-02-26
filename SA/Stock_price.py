@@ -61,7 +61,7 @@ if company_name:
 
         # Convert index to datetime and localize timezone
         tickerDF.index = pd.to_datetime(tickerDF.index)
-        tickerDF.index = tickerDF.index.tz_localize("UTC").tz_convert("America/New_York")
+        tickerDF.index = tickerDF.index.tz_localize("UTC").tz_convert("US/Eastern")
 
         # Create two columns for side-by-side display
         col1, col2 = st.columns(2)
