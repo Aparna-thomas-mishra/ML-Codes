@@ -12,6 +12,7 @@ st.set_page_config(
 )
 
 package = Package('https://datahub.io/core/s-and-p-500-companies/datapackage.json')
+# package = Package('datapackage.json')
 
 # Extract the relevant CSV resource
 for resource in package.resources:
@@ -60,7 +61,7 @@ if company_name:
         tickerDF = tickerData.history(period = '1mo', start = '2005-5-31', end = date.today())
 
         # Convert index to datetime and localize timezone
-        tickerDF.index = pd.to_datetime(tickerDF.index).tz_localize('utc')
+        tickerDF.index = pd.to_datetime(tickerDF.index).tz_convert("UTC")
 
         # Create two columns for side-by-side display
         col1, col2 = st.columns(2)
